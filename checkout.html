@@ -3,6 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Checkout</title>
+    <style>
+        @keyframes buttona {
+            from {background-color: lightcoral;}
+            to {background-color: dodgerblue;}
+            }
+
+            #button {
+                background-color: lightcoral;
+                color: lemonchiffon;
+                font-size: 30px;
+                height: 50px;
+                width: 200px;
+                animation-name: buttona;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+            }
+        }
+    </style>
 </head>
 <body>
     <form method="POST" action="https://request-inspector.glitch.me/">
@@ -42,7 +60,7 @@
         <input type="checkbox" id="keep" name="keep" required>Keep this credit card of file for future transactions
         <br>
         <br>
-        <button type="submit" style="height:50px; width:200px; font-size:30px">Buy Now!</button>
+        <button type="submit" id="button">Buy Now!</button>
     </form>
 </body>
 </html>
