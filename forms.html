@@ -14,15 +14,32 @@
         <br>
         <br>
         <label for="bio">Bio</label>
+        <br>
         <textarea name="bio" id="bio" placeholder="Please type a short bio for yourself."></textarea>
+        <br>
         <br>
         <label for="howdid">How did you hear about us?</label>
         <br>
-        Billboard <input id="howdid" type="radio" name="howdid" value="billboard">
-        Radio Advertisment <input type="radio" name="howdid" value="radio">
-        Internet Advertisement <input type="radio" name="howdid" value="internet">
-        Other <input type="radio" name="howdid" value="other">
+        <input id="howdid" type="radio" name="howdid1" value="billboard">
+        Billboard
+        <input type="radio" name="howdid2" value="radio">
+        Radio Advertisment
+        <input type="radio" name="howdid3" value="internet">
+        Internet Advertisement
+        <input type="radio" name="howdid4" value="other">
+        Other
         <br>
+        <br>
+        <label for="browser">What browser are you currently using?</label>
+        <br>
+        <select name="browser" id="browser">
+            <option value="chrome">Chrome</option>
+            <option value="firefox">Firefox</option>
+            <option value="safari">Safari</option>
+            <option value="ie">Internet Explorer</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="hidden" name="test" value="dog">
         <button type="submit">Submit</button>
     </form>
 </body>
