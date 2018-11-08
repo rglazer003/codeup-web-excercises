@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+.page {
+    width: 900px;
+    margin: 0 auto;
+    border: solid red 1px;
+    overflow: hidden;
+    background-color: #EAEDF0;
+}
+
 .menu {
     height: 100px;
     background-color: #B2D6FF;    /* Medium blue */
@@ -17,11 +25,14 @@
 }
 
 .content {
+    float: left;
+    width: 650px;
     height: 500px;
     background-color: #F5CF8E;    /* Yellow */
 }
 
 .footer {
+    clear: both;
     height: 200px;
     background-color: #D6E9FE;    /* Light blue */
 }
