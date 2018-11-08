@@ -1,6 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
 @import url(https://fonts.googleapis.com/css?family=Kumar+One+Outline);
 
+@keyframes linkstuff {
+    from {color: deeppink;}
+    to {color: deepskyblue;}
+}
+
 .fancy-header {
     color: purple;
     text-align: center;
@@ -20,3 +25,38 @@ body {
 ul {
     list-style: square;
 }
+
+table.data {
+    border: 1px solid black;
+}
+
+.data th {
+    color: steelblue;
+    text-decoration: underline;
+    text-decoration-style: double;
+}
+
+.data td,tr {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 20px;
+    font-size: 25px;
+}
+
+a:visited {
+    color: darkmagenta;
+}
+a:link {
+    color: darkgreen;
+}
+a:hover {
+    color: deeppink;
+    animation-name: linkstuff;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+a:active {
+    color: yellow;
+}
+
