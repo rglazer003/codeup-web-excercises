@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
 @import url(https://fonts.googleapis.com/css?family=Kumar+One+Outline);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
 
 @keyframes linkstuff {
     from {color: deeppink;}
@@ -22,25 +23,39 @@ body {
     font-family: 'Libre Baskerville', serif;
 }
 
+.images td {
+    margin: -10px;
+}
+
+td img {
+    width: 90%;
+    height: auto;
+    padding: 0;
+    margin: -5px;
+}
+
 ul {
     list-style: square;
 }
 
 table.data {
-    border: 1px solid black;
+    border: 3px solid black;
 }
 
-.data th {
+table.data th {
     color: steelblue;
     text-decoration: underline;
     text-decoration-style: double;
+    font-size: 40px;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
-.data td,tr {
+table.data td,tr {
     border: 1px solid black;
     padding: 5px;
     margin: 20px;
     font-size: 25px;
+    text-align: center;
 }
 
 a:visited {
