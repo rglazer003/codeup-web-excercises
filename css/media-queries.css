@@ -1,7 +1,9 @@
 .sub-section {
      font-style: italic;
  }
-
+body {
+    font-family: Arial;
+}
 @media screen and (max-width: 768px) {
     .alert-info {
         background-color: #B2D6FF;
@@ -82,7 +84,7 @@
         margin: 0 auto;
     }
     .main, .sub-section {
-        float: left;;
+        float: left;
     }
     .main {
         width: 70%;
