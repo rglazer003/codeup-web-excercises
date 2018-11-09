@@ -49,3 +49,50 @@
         margin-top: 4em;
     }
 }
+
+@media screen and (min-width: 769px) {
+    .hidden-on-desktop {
+        display: none;
+    }
+    body {
+        padding: 0 20px;
+    }
+    h1 {
+        font-size: 4em;
+        float: left;
+        margin-top: 40px;
+    }
+
+    .nav-links  > li {
+        display: inline;
+        padding-left: .5em
+    }
+    .nav-links {
+        float: right;
+        margin-top: 80px;
+    }
+    .header-img {
+        clear: both;
+        width: 100%;
+        height: 100%;
+    }
+    .header-img img {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .main, .sub-section {
+        float: left;;
+    }
+    .main {
+        width: 70%;
+    }
+    .sub-section {
+        width: 30%;
+    }
+    footer > p {
+        /*clear: both;*/
+        position: relative;
+        bottom: 0px;
+    }
+}
