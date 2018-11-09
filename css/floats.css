@@ -7,7 +7,9 @@
 .page {
     width: 900px;
     margin: 0 auto;
-    border: solid red 1px;
+}
+
+.container {
     overflow: hidden;
     background-color: #EAEDF0;
 }
