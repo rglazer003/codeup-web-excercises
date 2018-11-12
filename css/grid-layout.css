@@ -11,6 +11,7 @@
 .row {
     width:100%;
     margin: 10px;
+    /*border: solid black 1px;*/
 }
 
 .row:after {
@@ -21,9 +22,9 @@
 
 .column {
     float: left;
-    padding: 10px;
+    /*padding: 10px;*/
     /*re-enable these to evaluate first part of grid exercise, turn off afterwards*/
-    /*background-color: grey;*/
+    background-color: grey;
     /*border: solid black 1px;*/
 }
 
@@ -57,6 +58,18 @@
 
 .center-this {
     text-align: center;
+}
+
+.offset-one-fourth {
+    float: left;
+    margin-left: 25%;
+}
+.offset-half {
+    float: left;
+    margin-left: 50%;
+}
+.full {
+    width: 100%;
 }
 @media screen and (max-width: 768px) {
     .column.one-half,
