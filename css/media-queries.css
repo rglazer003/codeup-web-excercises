@@ -36,6 +36,9 @@ body {
     }
     .sub-section {
     }
+    .sub-section.row.padfix {
+        margin-left: 0px;
+    }
     .nav-links > li {
         background-color: lightgrey;
         list-style-type: none;

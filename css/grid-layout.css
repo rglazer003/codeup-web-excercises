@@ -31,8 +31,8 @@
 .column.one-third {
     width: 33.33%;
 }
-.column.one-third-special {
-    width: 33%;
+.column.one-third-padfix {
+    width: 33.33%;
     padding-left: 0;
 }
 
