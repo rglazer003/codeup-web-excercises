@@ -14,7 +14,7 @@ body {
         border: 1px solid grey;
         height: 2.5em;
         margin: 0 auto;
-        padding-top: 1.25em;
+        padding-top: .75em;
     }
     .alert-info > a {
         color: black;
