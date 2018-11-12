@@ -5,7 +5,7 @@
 .container {
     margin: 0 auto;
     width: 80%;
-    max-width: 1200px;
+    /*max-width: 1200px;*/
 }
 
 .row {
@@ -22,8 +22,6 @@
 .column {
     float: left;
     padding: 10px;
-    background-color: grey;
-    border: solid black 1px;
 }
 
 .column.one-half {
@@ -32,6 +30,10 @@
 
 .column.one-third {
     width: 33.33%;
+}
+.column.one-third-special {
+    width: 33%;
+    padding-left: 0;
 }
 
 .column.one-fourth {
@@ -44,6 +46,14 @@
 
 .column.one-eighth {
     width: 12.5%;
+}
+
+.column.two-thirds {
+    width: 66%;
+}
+
+.center-this {
+    text-align: center;
 }
 @media screen and (max-width: 768px) {
     .column.one-half,
