@@ -92,3 +92,10 @@ alert ("You should tip $" + calculateTip(tip,bill));
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+function applyDiscount(price, discount) {
+    var totalPrice = price - (price*discount);
+    return totalPrice;
+}
+var itemPrice = prompt ("How much is the item you want to buy?");
+var discoutnAmmount = prompt ("How big is the discount (Number between 0 and 1).");
+alert ("Item total is $" + applyDiscount(itemPrice,discoutnAmmount));
