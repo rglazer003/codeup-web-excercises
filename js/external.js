@@ -16,6 +16,14 @@ var face = 350;
 var faceTime = 10;
 var payTotal = (goog * googTime)+(amaz * amazTime)+(face * faceTime);
 alert ("Payment total is " + payTotal);
+var space = confirm ("Does the class have space in it?");
+var schedule = confirm ("Does the class work with your schedule?")
+if (space && schedule) {
+    alert ("You can take the class.");
+}
+else {
+    alert ("You can not take the class.");
+}
 var items = prompt ("How many items?");
 items = Number(items);
 var offer = confirm ("Is the offer valid?");
