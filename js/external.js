@@ -1,3 +1,4 @@
+"use strict";
 console.log ("Hello from external javascript");
 alert ("Welcome to my website");
 var favColor = prompt ("What is your favorite color?");
@@ -17,7 +18,7 @@ var faceTime = 10;
 var payTotal = (goog * googTime)+(amaz * amazTime)+(face * faceTime);
 alert ("Payment total is " + payTotal);
 var space = confirm ("Does the class have space in it?");
-var schedule = confirm ("Does the class work with your schedule?")
+var schedule = confirm ("Does the class work with your schedule?");
 if (space && schedule) {
     alert ("You can take the class.");
 }
@@ -32,5 +33,5 @@ if (offer && (items > 2 || premium)) {
     alert ("The offer is good");
 }
 else {
-    alert("The offer is not good")
+    alert("The offer is not good");
 }
