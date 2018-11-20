@@ -15,7 +15,33 @@
  *
  * Can you refactor your code to use functions?
  */
-
+var numberEntry = confirm ("Do you want to enter a number?");
+if (numberEntry) {
+    var number = prompt ("Please enter a number.");
+    number = Number(number)
+}
+else {
+    alert("Nevermind.")
+}
+if (isNaN(number) === false) {
+    alert("Thats a number, lets continue.")
+}
+else {
+    alert("Thats not a number.")
+}
+if (number%2===0){
+    alert (number + " is even.")
+}
+else {
+    alert (number + " is odd.")
+}
+alert (number + " plus 100 equals " + (number+100));
+if (number > 0) {
+    alert (number + " is positive.")
+}
+else {
+    alert (number + " is negative.")
+}
 /* ########################################################################## */
 
 /**
