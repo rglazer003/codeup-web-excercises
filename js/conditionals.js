@@ -61,7 +61,22 @@ else {
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-
+function analyzeColor(color){
+    if (color === "blue"){
+        alert ("Blue is the color of the sky")
+    }
+    else if (color === "red"){
+        alert ("Strawberries are red")
+    }
+    else if (color === "cyan"){
+        alert ("I don't know anything about cyan")
+    }
+    else {
+        alert ("I don't have anything to say about that")
+    }
+}
+var colorChoice = prompt("Please enter a color");
+analyzeColor(colorChoice);
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
