@@ -140,8 +140,8 @@ analyzeColorSwitch(colorTest);
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-function calculateTotal(luckyNumber, totalAmount){
-    var LN = luckyNumber;
+function calculateTotal(luckyNumberfunc, totalAmount){
+    var LN = luckyNumberfunc;
     var discountAmount = totalAmount;
     switch (LN) {
         case 0:
