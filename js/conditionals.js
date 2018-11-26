@@ -163,13 +163,13 @@ function calculateTotal(luckyNumberfunc, totalAmount){
             var discount = 0.35;
             discountAmount = discountAmount*discount;
             totalAmount = totalAmount-discountAmount;
-            alert ("Your discount is 10%, your total amount is " + totalAmount + ".");
+            alert ("Your discount is 35%, your total amount is " + totalAmount + ".");
             break;
         case 4:
             var discount = 0.5;
             discountAmount = discountAmount*discount;
             totalAmount = totalAmount-discountAmount;
-            alert ("Your discount is 10%, your total amount is " + totalAmount + ".");
+            alert ("Your discount is 50%, your total amount is " + totalAmount + ".");
             break;
         case 5:
             alert("Congratulations! Your discount is 100%, your entire purchase is free!");
