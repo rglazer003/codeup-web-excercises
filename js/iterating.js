@@ -72,4 +72,14 @@
         console.log(hundredArray);
     }
     hundred();
+
+    function reverse (array){
+        var reverseArray = array.reverse();
+        console.log(reverseArray);
+    }
+    var testArray = [1,2,3,4,5,6,7,8,9];
+    console.log("Here is the test array:");
+    console.log(testArray);
+    console.log('Here is that array reversed:');
+    reverse(testArray);
 })();
