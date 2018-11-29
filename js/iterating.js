@@ -69,10 +69,9 @@
         for (var i = 1; i <= 100; i++){
             hundredArray.push(i);
         }
-        console.log(hundredArray);
         return hundredArray;
     }
-    oneHundred();
+    console.log(oneHundred());
 
     function reverse (array){
         var reverseArray = array.reverse();
@@ -90,7 +89,6 @@
         for (i=0; i<array.length; i++){
             sum += array[i];
         }
-        console.log(sum);
         return sum;
     }
     console.log("The test array is " + oneHundred());
@@ -101,7 +99,6 @@
         for (i=0; i<array.length; i++){
             sum *= array[i];
         }
-        console.log(sum);
         return sum;
     }
     console.log("The test array is " + oneHundred());
