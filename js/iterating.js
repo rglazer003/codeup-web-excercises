@@ -64,6 +64,9 @@
     second(numArray);
 
     function last (array){
+        //Changing -1 to something else will change the pull position
+        //Getting rid of the [0] lets you pull multiple elements
+        //ie array.slice(-3) will result in [3, 4, 5]
         console.log(array.slice(-1)[0]);
     }
     last(numArray);
