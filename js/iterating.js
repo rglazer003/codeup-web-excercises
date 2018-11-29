@@ -26,12 +26,15 @@
      * Write some code that uses a for loop to log every item in the names
      * array.
      */
-
+    //Did that in the above part
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
-
+    console.log ("Listing names with a forEach loop:");
+    names.forEach(function (name) {
+        console.log (name);
+    });
     /**
      * TODO:
      * Create the following three functions, each will accept an array and
@@ -45,5 +48,17 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-
+    var numArray = [1,2,3,4,5]
+    function first(array){
+        console.log(array[0]);
+    }
+    first(numArray);
+    function second(array) {
+        console.log(array[1]);
+    }
+    second(numArray);
+    function last (array){
+        console.log(array.slice(-1)[0]);
+    }
+    last(numArray);
 })();
