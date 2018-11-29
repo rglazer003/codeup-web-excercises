@@ -64,14 +64,15 @@
     }
     last(numArray);
 
-    function hundred() {
+    function oneHundred() {
         var hundredArray = [];
         for (var i = 1; i <= 100; i++){
             hundredArray.push(i);
         }
         console.log(hundredArray);
+        return hundredArray;
     }
-    hundred();
+    oneHundred();
 
     function reverse (array){
         var reverseArray = array.reverse();
@@ -82,4 +83,27 @@
     console.log(testArray);
     console.log('Here is that array reversed:');
     reverse(testArray);
+    testArray.reverse();
+
+    function sumAll (array){
+        var sum = 0;
+        for (i=0; i<array.length; i++){
+            sum += array[i];
+        }
+        console.log(sum);
+        return sum;
+    }
+    console.log("The test array is " + oneHundred());
+    console.log("The test array summed is " + sumAll(oneHundred()));
+
+    function multiplyAll (array){
+        var sum = 1;
+        for (i=0; i<array.length; i++){
+            sum *= array[i];
+        }
+        console.log(sum);
+        return sum;
+    }
+    console.log("The test array is " + oneHundred());
+    console.log("The test array summed is " + multiplyAll(oneHundred()));
 })();
