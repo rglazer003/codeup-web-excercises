@@ -1,7 +1,7 @@
 var num = prompt ("Enter an odd number between 1 and 50");
 num = Number(num);
 while (0===0){
-    if (num%2===0 || num>50){
+    if (num%2===0 || num>50 || num<1){
         num = prompt ("Enter another number");
         num = Number(num)
     }
