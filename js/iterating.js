@@ -105,5 +105,5 @@
         return sum;
     }
     console.log("The test array is " + oneHundred());
-    console.log("The test array summed is " + multiplyAll(oneHundred()));
+    console.log("The test array multiplied is " + multiplyAll(oneHundred()));
 })();
