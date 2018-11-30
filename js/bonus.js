@@ -17,14 +17,23 @@ var sales = 0;
 var employeeArray = [];
 for (var i = 0; i<reportData.length; i++){
     var pick = reportData.slice(i, i+1);
+    pick = pick.toString().split(',');
     employeeArray.push(pick);
-    pick = pick.toString().split(',').slice(3).toString();
+    pick = pick.slice(3).toString();
     pick = Number(pick);
     sales += pick;
 }
 console.log("Total number of units sold is " + sales);
 console.log("Average number of sales is " + sales/reportData.length);
 function sortArray (a, b){
-    return a-b;
+    return a[3]-b[3];
 }
-console.log(employeeArray);
+employeeArray.sort(sortArray);
+employeeArray.reverse();
+var employeeList = "";
+var employeePick = [];
+for (var k = 0; k<employeeArray.length; k++){
+    employeePick = employeeArray.slice(k, k+1).toString();
+    employeeList += employeePick+ '\n';
+}
+console.log('The list of employess, sorted by number of sales is:\n' + employeeList);
