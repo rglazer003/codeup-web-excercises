@@ -36,4 +36,4 @@ for (var k = 0; k<employeeArray.length; k++){
     employeePick = employeeArray.slice(k, k+1).toString();
     employeeList += employeePick+ '\n';
 }
-console.log('The list of employess, sorted by number of sales is:\n' + employeeList);
+console.log('The list of employees, sorted by number of sales is:\n' + employeeList);
