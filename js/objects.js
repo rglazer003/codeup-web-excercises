@@ -83,6 +83,17 @@ shoppers.forEach(function (shopper) {
         {title: "Penpal", author:{firstName: "Dathan", lastName: "Auerbach"}}
     ];
     console.log(books[0].title);
+    var k = 1;
+
+    books.forEach(function (book) {
+        for (var i = 1; i<2; i++){
+            console.log("Book #" + k);
+            console.log("Title: " + book.title);
+            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+            console.log("---");
+            k++
+        }
+    });
     /**
      * TODO:
      * Loop through the books array and output the following information about
