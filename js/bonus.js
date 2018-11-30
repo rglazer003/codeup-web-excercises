@@ -26,9 +26,9 @@ for (var i = 0; i<reportData.length; i++){
 console.log("Total number of units sold is " + sales);
 console.log("Average number of sales is " + sales/reportData.length);
 function sortArray (a, b){
-    return a[3]-b[3];
+    return b[3]-a[3];
 }
-employeeArray.sort(sortArray).reverse();
+employeeArray.sort(sortArray);
 var employeeList = "";
 var employeePick = [];
 for (var k = 0; k<employeeArray.length; k++){
