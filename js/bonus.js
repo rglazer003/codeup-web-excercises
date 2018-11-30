@@ -14,13 +14,17 @@ var reportData = reportArray.slice(7);
 console.log(reportData);
 console.log('Number of employees is ' + reportData.length);
 var sales = 0;
+var employeeArray = [];
 for (var i = 0; i<reportData.length; i++){
     var pick = reportData.slice(i, i+1);
-    pick = pick.toString();
-    pick = pick.split(',');
-    pick = pick.slice(3);
-    pick = pick.toString();
+    employeeArray.push(pick);
+    pick = pick.toString().split(',').slice(3).toString();
     pick = Number(pick);
     sales += pick;
 }
 console.log("Total number of units sold is " + sales);
+console.log("Average number of sales is " + sales/reportData.length);
+function sortArray (a, b){
+    return a-b;
+}
+console.log(employeeArray);
