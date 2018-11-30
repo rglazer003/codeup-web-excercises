@@ -86,13 +86,11 @@ shoppers.forEach(function (shopper) {
     var k = 1;
 
     books.forEach(function (book) {
-        for (var i = 1; i<2; i++){
             console.log("Book #" + k);
             console.log("Title: " + book.title);
             console.log("Author: " + book.author.firstName + " " + book.author.lastName);
             console.log("---");
             k++
-        }
     });
     /**
      * TODO:
