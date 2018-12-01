@@ -50,7 +50,7 @@
         {name: 'Ryan', amount: 250},
         {name: 'George', amount: 320}
     ];
-shoppers.forEach(function (shopper) {
+    shoppers.forEach(function (shopper) {
     if (shopper.amount >= 200) {
         var discount = shopper.amount * .12;
         console.log("Hello " + shopper.name + " your total before discount is " + shopper.amount + " your discount is " + discount + " your total amount is "+ (shopper.amount-discount))
@@ -127,5 +127,25 @@ shoppers.forEach(function (shopper) {
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+    var newBooks = [];
+    function createBook (){
+        var book = {title: 'test', author: {firstName: 'test', lastName: "test"}};
+        book.title = prompt("Please enter book title");
+        book.author.firstName = prompt ("Please enter author first name");
+        book.author.lastName = prompt ("Please enter author last name");
+        // test.author.firstName = prompt ("Please enter author first name");
+        // test.author.lastName = prompt ("Please enter author last name");
+        newBooks.push(book);
+    }
+    for (var i = 0; i<2; i++){
+        createBook();
+    }
+    console.log(newBooks);
+    console.log(newBooks[0].title);
 
+    // var find = newBooks.find(function (element) {
+    //     var bookSearch = prompt("Name a book");
+    //     return element === bookSearch;
+    // });
+    // console.log(find);
 })();
