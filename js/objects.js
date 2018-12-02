@@ -140,7 +140,7 @@
         book.author.lastName = prompt ("Please enter author last name");
         newBooks.push(book);
     }
-    for (var i = 0; i<2; i++){
+    for (var i = 0; i<5; i++){
         createBook();
     }
     console.log(newBooks);
