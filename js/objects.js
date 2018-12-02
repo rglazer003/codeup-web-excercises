@@ -140,7 +140,7 @@
         book.author.lastName = prompt ("Please enter author last name");
         newBooks.push(book);
     }
-    for (var i = 0; i<2; i++){
+    for (var i = 0; i<5; i++){
         createBook();
     }
     console.log(newBooks);
@@ -158,7 +158,7 @@
             console.log("The book " + newBooks[index].title + " was written by " + newBooks[index].author.firstName + " " + newBooks[index].author.lastName);
         }
         else {
-            alert ("Can not find that book in list");
+            alert ("Can not find " + search + " in list");
             bookSearch();
             showSearch();
         }
