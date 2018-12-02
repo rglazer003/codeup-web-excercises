@@ -148,4 +148,11 @@
     //     return element === bookSearch;
     // });
     // console.log(find);
+    var search = prompt("Enter title of book to search for");
+    var index = newBooks.findIndex(x => x.title==search);
+    console.log(index);
+    function showSearch(){
+        console.log("The book " + newBooks[index].title + " was written by " + newBooks[index].author.firstName + " " + newBooks[index].author.lastName);
+    }
+    showSearch();
 })();
