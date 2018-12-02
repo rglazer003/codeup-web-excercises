@@ -146,7 +146,7 @@
     console.log(newBooks);
     console.log(newBooks[0].title);
     var search = '';
-    var index = '';
+    var index = 0;
     function bookSearch (){
           search = prompt("Enter title of book to search for");
           index = newBooks.findIndex(newBooks => newBooks.title==search);
