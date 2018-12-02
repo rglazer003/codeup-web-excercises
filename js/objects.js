@@ -83,14 +83,19 @@
         {title: "Penpal", author:{firstName: "Dathan", lastName: "Auerbach"}}
     ];
     console.log(books[0].title);
-    var k = 1;
+    // var k = 1;
 
     books.forEach(function (book) {
-            console.log("Book #" + k);
-            console.log("Title: " + book.title);
-            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
-            console.log("---");
-            k++
+        // Numbering books, the hard way
+        var testSearch = book.title;
+        var testIndex = books.findIndex(books => books.title==testSearch)+1;
+        console.log("Book #" + testIndex);
+        // Numbering books, the easy way
+        // console.log("Book #" + k);
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("---");
+        k++
     });
     /**
      * TODO:
@@ -143,11 +148,6 @@
     console.log(newBooks);
     console.log(newBooks[0].title);
 
-    // var find = newBooks.find(function (element) {
-    //     var bookSearch = prompt("Name a book");
-    //     return element === bookSearch;
-    // });
-    // console.log(find);
     var search = prompt("Enter title of book to search for");
     var index = newBooks.findIndex(newBooks => newBooks.title==search);
     console.log(index);
