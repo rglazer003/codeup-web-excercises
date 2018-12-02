@@ -95,7 +95,7 @@
         console.log("Title: " + book.title);
         console.log("Author: " + book.author.firstName + " " + book.author.lastName);
         console.log("---");
-        k++
+        //k++
     });
     /**
      * TODO:
@@ -138,8 +138,6 @@
         book.title = prompt("Please enter book title");
         book.author.firstName = prompt ("Please enter author first name");
         book.author.lastName = prompt ("Please enter author last name");
-        // test.author.firstName = prompt ("Please enter author first name");
-        // test.author.lastName = prompt ("Please enter author last name");
         newBooks.push(book);
     }
     for (var i = 0; i<5; i++){
