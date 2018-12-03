@@ -133,14 +133,29 @@
      *   `showBookInfo` function.
      */
     var newBooks = [];
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth();
     function createBook (){
-        var book = {title: 'test', author: {firstName: 'test', lastName: "test"}};
+        var book = {title: 'test', author: {firstName: 'test', lastName: "test"}, keywords: ["fiction", "non-fiction",
+            "humor", "sci-fi"], available: true, dateAvailable: "12/5/18", lend:function(){
+            if (this.available = true){
+                this.available = false;
+                this.dateAvailable = mm + "/" + (dd+14);
+            }
+            else {
+                console.log(this.title + "Is already checked out")
+            }
+            }, recive: function(){
+            this.available = true;
+            this.dateAvailable = "now"
+            } };
         book.title = prompt("Please enter book title");
         book.author.firstName = prompt ("Please enter author first name");
         book.author.lastName = prompt ("Please enter author last name");
         newBooks.push(book);
     }
-    for (var i = 0; i<5; i++){
+    for (var i = 0; i<2; i++){
         createBook();
     }
     console.log(newBooks);
@@ -164,4 +179,32 @@
         }
     }
     showSearch();
+
+    var dog = {
+        breed: "Boxer",
+        weightInPounds: 53,
+        age: 3,
+        color: "Brindle",
+        sterilized: false,
+        shotRecords: [],
+        bark: function (){
+            console.log ("Woof!")
+        },
+        getOlder: function () {
+            this.age = this.age+1
+        },
+        fix: function () {
+            if (this.sterilized === false){
+                this.sterilized = true
+            }
+            else {
+                console.log("Dog is already fixed")
+            }
+        },
+        vaccinate: function () {
+            var shotType = prompt("What kind of shot?");
+            var date = prompt("What date did the shot occur?");
+            this.shotRecords.push({typeOfShot: shotType, date: date})
+        }
+    };
 })();
