@@ -6,17 +6,30 @@
 </head>
 <body>
     <p id="test">
-        This is the test text
+        This code will generate a random number between 1 and 10 and then 2 seconds later display if it is even or odd
     </p>
-    <button id="btn1">Test that shit</button>
+    <button id="btn1">Generate and check random number</button>
 
     <script>
+        var rand = 0;
         var paragraph = document.getElementById("test");
         console.log(paragraph);
         var btn1 = document.getElementById("btn1");
+        function evenOddCheck () {
+            if (rand % 2 === 0) {
+                paragraph.innerHTML = "And that's an even number"
+            } else {
+                paragraph.innerHTML = "And that's an odd number"
+            }
+        }
+
         var textChange = function (event){
-            var rand = Math.floor((Math.random()*10)+1);
+            rand = Math.floor((Math.random()*10)+1);
+            var displayTimeout = setTimeout(function () {
+                evenOddCheck();
+            }, 2000);
             paragraph.innerHTML = rand;
+            displayTimeout;
         };
         btn1.addEventListener("click", textChange, false);
 
