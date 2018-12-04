@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="test">
+        This is the test text
+    </p>
+    <button id="btn1">Test that shit</button>
+
+    <script>
+        var paragraph = document.getElementById("test");
+        console.log(paragraph);
+        var btn1 = document.getElementById("btn1");
+        var textChange = function (event){
+            var rand = Math.floor((Math.random()*10)+1);
+            paragraph.innerHTML = rand;
+        };
+        btn1.addEventListener("click", textChange, false);
+
+    </script>
+</body>
+</html>
