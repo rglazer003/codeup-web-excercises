@@ -39,12 +39,19 @@
         // btn1.addEventListener("click", textChange, false);
         var testForm = document.getElementById("testForm");
         var textDump = "";
+        var alertLog = '';
         var logKeys = function (e) {
             console.log(e.key);
             textDump += e.key;
         };
+        var alertKey = function (e){
+            alertLog = e;
+            if (alertLog.key === "Shift"){
+                alert("You pressed shift")
+            }
+        };
         testForm.addEventListener("keyup", logKeys, false);
-
+        testForm.addEventListener('keyup', alertKey, false);
     </script>
 </body>
 </html>
