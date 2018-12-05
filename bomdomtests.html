@@ -37,6 +37,7 @@
         //     displayTimeout;
         // };
         // btn1.addEventListener("click", textChange, false);
+        var count =0;
         var testForm = document.getElementById("testForm");
         var textDump = "";
         var alertLog = '';
@@ -46,8 +47,9 @@
         };
         var alertKey = function (e){
             alertLog = e;
-            if (alertLog.key === "Shift"){
-                alert("You pressed shift")
+            if (alertLog.key === "Shift" && count < 1){
+                alert("You pressed shift");
+                count++
             }
         };
         testForm.addEventListener("keyup", logKeys, false);
