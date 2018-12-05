@@ -5,33 +5,45 @@
     <title>Title</title>
 </head>
 <body>
-    <p id="test">
-        This code will generate a random number between 1 and 10 and then 2 seconds later display if it is even or odd
-    </p>
-    <button id="btn1">Generate and check random number</button>
+    <!--<p id="test">-->
+        <!--This code will generate a random number between 1 and 10 and then 2 seconds later display if it is even or odd-->
+    <!--</p>-->
+    <!--<button id="btn1">Generate and check random number</button>-->
+    <form action="">
+        <label for="testForm"></label>
+        <input type="text" id="testForm" name="testForm">
+    </form>
 
     <script>
-        var rand = 0;
-        var paragraph = document.getElementById("test");
-        console.log(paragraph);
-        var btn1 = document.getElementById("btn1");
-        function evenOddCheck () {
-            if (rand % 2 === 0) {
-                paragraph.innerHTML = "And that's an even number"
-            } else {
-                paragraph.innerHTML = "And that's an odd number"
-            }
-        }
-
-        var textChange = function (event){
-            rand = Math.floor((Math.random()*10)+1);
-            var displayTimeout = setTimeout(function () {
-                evenOddCheck();
-            }, 2000);
-            paragraph.innerHTML = rand;
-            displayTimeout;
+        // Random number generator and checker
+        // var rand = 0;
+        // var paragraph = document.getElementById("test");
+        // console.log(paragraph);
+        // var btn1 = document.getElementById("btn1");
+        // function evenOddCheck () {
+        //     if (rand % 2 === 0) {
+        //         paragraph.innerHTML = "And that's an even number"
+        //     } else {
+        //         paragraph.innerHTML = "And that's an odd number"
+        //     }
+        // }
+        //
+        // var textChange = function (event){
+        //     rand = Math.floor((Math.random()*10)+1);
+        //     var displayTimeout = setTimeout(function () {
+        //         evenOddCheck();
+        //     }, 2000);
+        //     paragraph.innerHTML = rand;
+        //     displayTimeout;
+        // };
+        // btn1.addEventListener("click", textChange, false);
+        var testForm = document.getElementById("testForm");
+        var textDump = "";
+        var logKeys = function (e) {
+            console.log(e.key);
+            textDump += e.key;
         };
-        btn1.addEventListener("click", textChange, false);
+        testForm.addEventListener("keyup", logKeys, false);
 
     </script>
 </body>
