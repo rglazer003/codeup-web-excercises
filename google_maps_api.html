@@ -11,6 +11,8 @@
 <body>
     <!-- div to hold map -->
     <div id="map-canvas"></div>
+    <input type="text" id="testAddress">
+    <button id="btn">Test</button>
 
     <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYm8giPLtR3b1hJfKMmee0NFMnFRdr8o8"></script>
@@ -33,6 +35,22 @@
             };
 
             // Render the map
+            var geocoder = new google.maps.Geocoder();
+            var btn = document.getElementById('btn');
+            btn.addEventListener('click', function(){
+                var myAddress = document.getElementById('testAddress').value;
+                geocoder.geocode({ "address": myAddress }, function(results, status) {
+                    // Check for a successful result
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        // Recenter the map over the address
+                        console.log(results);
+                        map.setCenter(results[0].geometry.location);
+                    } else {
+                        // Show an error message with the status if our request fails
+                        alert("Geocoding was not successful - STATUS: " + status);
+                    }
+                });
+            });
             var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
             var goFish ={lat: 33.089816, lng: -96.806628};
             var infoWindow = new google.maps.InfoWindow ({
@@ -43,6 +61,7 @@
                 map: map
             });
             infoWindow.open(map, marker)
+
         })();
     </script>
 </body>
