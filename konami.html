@@ -18,15 +18,19 @@
         $(document).on('keydown', function (e) {
             keyLog.push(e.keyCode);
             i++;
-
-            if (konami.toString() === keyLog.toString()) {
-                console.log('It works');
-                $('body').css('background-color', 'green');
-                $(document).off('keydown')
-            }
-            else {
-                i = 0;
-                keyLog = []
+            for (var j = 0; j<= keyLog.length -1; j++){
+                if (konami.toString() === keyLog.toString()) {
+                    console.log('It works');
+                    $('body').css('background-color', 'green');
+                    $(document).off('keydown')
+                }
+                else if (konami[j] === keyLog[j]){
+                    continue;
+                }
+                else {
+                    i = 0;
+                    keyLog = []
+                }
             }
 
 
