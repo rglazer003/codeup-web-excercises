@@ -12,6 +12,7 @@
         var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
         var keyLog = [];
         var i = 0;
+        var audio = new Audio('audio/toilet.mp3');
         // $(document).keyup(function(event){
         //     console.log(event.keyCode);
 
@@ -21,7 +22,8 @@
             for (var j = 0; j<= keyLog.length -1; j++){
                 if (konami.toString() === keyLog.toString()) {
                     console.log('It works');
-                    $('body').css('background-color', 'green');
+                    $('body').css('background-image', 'url("img/fyr.jpg")');
+                    audio.play();
                     $(document).off('keydown')
                 }
                 else if (konami[j] === keyLog[j]){
