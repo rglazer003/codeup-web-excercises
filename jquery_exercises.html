@@ -16,7 +16,20 @@
     </div>
     <script src="js/jquery-2.2.4.js"></script>
     <script>
-        $('h1, li, p').css('background-color', 'yellow');
+        $('h1').click(function () {
+            $('h1').css('background-color', 'green')
+        });
+        $('p').dblclick(function () {
+            $('p').css('font-size', '18px')
+        });
+        $('li').hover(
+            function () {
+                $('li').css('color', 'red')
+        },
+            function () {
+                $('li').css('color', '')
+        }
+        )
     </script>
 </body>
 </html>
