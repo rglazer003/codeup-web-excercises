@@ -5,12 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-    <p>Test</p>
+    <p id="p" class="something">This is a P tag</p>
+    <h1 id="header" class="something">This is an H1 tag</h1>
+    <ul>
+        <li>This is an LI</li>
+        <li>And here's another one</li>
+    </ul>
+    <div>
+        <p>P in a div</p>
+    </div>
     <script src="js/jquery-2.2.4.js"></script>
     <script>
-        window.onload = function() {
-            alert( 'The page has finished loading!' );
-        };
+         var content = $('#header').html();
+         alert(content);
         $(document).ready(function() {
             alert( 'The DOM has finished loading!' );
         });
