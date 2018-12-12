@@ -17,11 +17,10 @@
         //     console.log(event.keyCode);
 
         $(document).on('keydown', function (e) {
-            keyLog.push(e.keyCode);
+            keyLog.push(e.which);
             i++;
             for (var j = 0; j<= keyLog.length -1; j++){
                 if (konami.toString() === keyLog.toString()) {
-                    console.log('It works');
                     $('body').css('background-image', 'url("img/fyr.jpg")');
                     audio.play();
                     $(document).off('keydown')
