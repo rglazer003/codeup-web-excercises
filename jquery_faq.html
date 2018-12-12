@@ -128,7 +128,7 @@
         });
         $('h3').on('click', function () {
             $(this).next().toggleClass('bold');
-            $(this).next().toggleClass('hidden');
+            $(this).next().slideToggle();
         });
         $('li').on('click', function () {
             $(this).parent().children().first().toggleClass('blue')
