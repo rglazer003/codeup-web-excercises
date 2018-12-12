@@ -20,6 +20,10 @@
         .invisible {
             display: none;
         }
+
+        .highlight {
+            background-color: yellow;
+        }
     </style>
 </head>
 <body>
@@ -62,6 +66,10 @@
         $('#btn').on('click', function () {
             $('dd').toggleClass('invisible');
             $(this).addClass('invisible');
+        });
+        $('dl > dt').on('click', function () {
+            $('dl > dt').removeClass('highlight');
+            $(this).addClass('highlight')
         })
     </script>
 </body>
