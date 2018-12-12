@@ -32,9 +32,21 @@
         .blue {
             color: blue;
         }
+        span {
+            color: red;
+            font-size: 30px;
+            float: right;
+        }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
+    <div class="news">
+        <span>X</span>
+        <h1>Would you like to sign up for our newsletter?</h1>
+    </div>
     <dl>
         <dt>Fact 1</dt>
         <dd class="invisible">In the National Park System, there are 407 sites covering more than 84 million acres of land.</dd>
@@ -71,7 +83,7 @@
     </dl>
 
     <h3>Park</h3>
-    <ul>
+    <ul class="hidden">
         <li>1</li>
         <li>2</li>
         <li>3</li>
@@ -79,7 +91,7 @@
     </ul>
 
     <h3>Park</h3>
-    <ul>
+    <ul class="hidden">
         <li>1</li>
         <li>2</li>
         <li>3</li>
@@ -87,7 +99,7 @@
     </ul>
 
     <h3>Park</h3>
-    <ul>
+    <ul class="hidden">
         <li>1</li>
         <li>2</li>
         <li>3</li>
@@ -96,6 +108,7 @@
 
     <button id="btn">Show me the facts</button>
     <button id="btn2">Yellow li</button>
+    <h2 class="hidden">Please register an account for our site</h2>
 
 
     <script src="js/jquery-2.2.4.js"></script>
@@ -111,14 +124,19 @@
         $('#btn2').on('click', function () {
             $('ul').each(function () {
                 $(this).children().last().toggleClass('highlight')
-            })
+            });
         });
         $('h3').on('click', function () {
-            $(this).next().toggleClass('bold')
+            $(this).next().toggleClass('bold');
+            $(this).next().toggleClass('hidden');
         });
         $('li').on('click', function () {
             $(this).parent().children().first().toggleClass('blue')
-        })
+        });
+        $('span').on('click', function () {
+            $('.news').hide()
+        });
+        $('h2').delay(8000).fadeIn(4000)
     </script>
 </body>
 </html>
