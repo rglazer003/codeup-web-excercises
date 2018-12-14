@@ -14,6 +14,7 @@
         }
         span{
             font-size: 12px;
+            display: inline;
         }
         .data {
             border: solid 1px black;
@@ -45,19 +46,31 @@
             <h3 id="hold1"></h3>
             <div id="hold2"></div>
             <div id="hold3"></div>
-            <div id="hold3a"></div>
+            <span id="humid1"></span>
+            <br>
+            <span id="wind1"></span>
+            <br>
+            <span id="pressure1"></span>
         </div>
         <div id="second" class="data">
             <h3 id="hold4"></h3>
             <div id="hold5"></div>
             <div id="hold6"></div>
-            <div id="hold6a"></div>
+            <span id="humid2"></span>
+            <br>
+            <span id="wind2"></span>
+            <br>
+            <span id="pressure2"></span>
         </div>
         <div id="third" class="data">
             <h3 id="hold7"></h3>
             <div id="hold8"></div>
             <div id="hold9"></div>
-            <div id="hold9a"></div>
+            <span id="humid3"></span>
+            <br>
+            <span id="wind3"></span>
+            <br>
+            <span id="pressure3"></span>
         </div>
     </div>
     <div id="map" style="text-align: center">
@@ -79,18 +92,30 @@
                 var icon2 = "http://openweathermap.org/img/w/"+img2+".png";
                 var img3 = data.list[0].weather[0].icon;
                 var icon3 = "http://openweathermap.org/img/w/"+img3+".png";
+                var hold3a = '<span class=\"bold\">'+data.list[0].weather[0].main+'</span>';
+                var hold3b = '<span>'+data.list[8].weather[0].description+'</span>';
+                var hold6a = '<span class=\"bold\">'+data.list[0].weather[0].main+'</span>';
+                var hold6b = '<span>'+data.list[8].weather[0].description+'</span>';
+                var hold9a = '<span class=\"bold\">'+data.list[16].weather[0].main+'</span>';
+                var hold9b = '<span>'+data.list[16].weather[0].description+'</span>';
                 $('#hold1').html(data.list[0].main.temp_min+'&deg'+'/'+data.list[0].main.temp_max+'&deg');
                 $('#hold2').html('<img src='+icon1+'>');
-                $('#hold3').html('<span class="bold">'+data.list[0].weather[0].main+'</span>');
-                $('#hold3a').html('<span>'+data.list[0].weather[0].description+'</span>');
+                $('#hold3').html(hold3a +': ' + hold3b);
+                $('#humid1').html('Humidity: ' + data.list[0].main.humidity);
+                $('#wind1').html('Wind: '+ data.list[0].wind.speed);
+                $('#pressure1').html('Pressure: ' + data.list[0].main.pressure);
                 $('#hold4').html(data.list[8].main.temp_min+'&deg'+'/'+data.list[8].main.temp_max+'&deg');
                 $('#hold5').html('<img src='+icon2+'>');
-                $('#hold6').html('<span class="bold">'+data.list[8].weather[0].main+'</span>');
-                $('#hold6a').html('<span>'+data.list[8].weather[0].description+'</span>');
+                $('#hold6').html(hold6a +': ' + hold6b);
+                $('#humid2').html('Humidity: ' + data.list[8].main.humidity);
+                $('#wind2').html('Wind: '+ data.list[8].wind.speed);
+                $('#pressure2').html('Pressure: ' + data.list[8].main.pressure);
                 $('#hold7').html(data.list[16].main.temp_min+'&deg'+'/'+data.list[16].main.temp_max+'&deg')
                 $('#hold8').html('<img src='+icon3+'>');
-                $('#hold9').html('<span class="bold">'+data.list[16].weather[0].main+'</span>');
-                $('#hold9a').html('<span>'+data.list[16].weather[0].description+'</span>');
+                $('#hold9').html(hold9a +': ' + hold9b);
+                $('#humid3').html('Humidity: ' + data.list[16].main.humidity);
+                $('#wind3').html('Wind: '+ data.list[16].wind.speed);
+                $('#pressure3').html('Pressure: ' + data.list[16].main.pressure);
             })
         }
         weatherRender()
