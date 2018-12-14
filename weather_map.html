@@ -85,11 +85,45 @@
     <div id="map" style="text-align: center">
         <div id="map-canvas" style="display: inline-block; background-color: white"></div>
     </div>
-
+    <input type="text" id="coordinate" value="Latitude, Longitude"/>
     <script src="js/jquery.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYm8giPLtR3b1hJfKMmee0NFMnFRdr8o8"></script>
     <script>
         var lat = 29.423017;
         var long = -98.48527;
+        var marker=null;
+        var geocoder = new google.maps.Geocoder();
+        var initialize = {
+            // Set the zoom level
+            zoom: 4,
+
+            // This sets the center of the map at our location
+            center: {
+                lat:  lat,
+                lng: long
+            }
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"), initialize);
+        google.maps.event.addListener(map, 'click', function(event) {
+            //call function to create marker
+            $("#coordinate").val(event.latLng.lat() + ", " + event.latLng.lng());
+            $("#coordinate").select();
+            console.log(event.latLng.lat());
+            console.log(event.latLng.lng());
+            lat = event.latLng.lat();
+            long = event.latLng.lng();
+
+            //delete the old marker
+            if (marker) { marker.setMap(null); }
+
+            //creer à la nouvelle emplacement
+            marker = new google.maps.Marker({ position: event.latLng, map: map});
+            weatherRender();
+        });
+
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
         function weatherRender() {
             $.get('http://api.openweathermap.org/data/2.5/forecast',{
                 APPID: 'b57aae04db5359e57dfa0d55e33d67c6',
@@ -138,7 +172,7 @@
             $('#lat').val('');
             $('#long').val('');
         });
-        weatherRender()
+        weatherRender();
     </script>
 </body>
 </html>
