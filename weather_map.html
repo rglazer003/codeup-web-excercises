@@ -38,6 +38,10 @@
             width: 770px;
             height: 481px;
         }
+
+        #form {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -73,16 +77,24 @@
             <span id="pressure3"></span>
         </div>
     </div>
+    <form id="form">
+        <input id="lat" type="text">
+        <input id="long" type="text">
+        <button id="btn">Search</button>
+    </form>
     <div id="map" style="text-align: center">
         <div id="map-canvas" style="display: inline-block; background-color: white"></div>
     </div>
 
     <script src="js/jquery.js"></script>
     <script>
+        var lat = 29.423017;
+        var long = -98.48527;
         function weatherRender() {
             $.get('http://api.openweathermap.org/data/2.5/forecast',{
                 APPID: 'b57aae04db5359e57dfa0d55e33d67c6',
-                id: 4726206,
+                lat: lat,
+                lon: long,
                 units: 'imperial'
             }).done(function (data, status, jqXhr){
                 console.log(data);
@@ -118,6 +130,14 @@
                 $('#pressure3').html('Pressure: ' + data.list[16].main.pressure);
             })
         }
+        $('#btn').on('click', function (e) {
+            e.preventDefault();
+            lat = $('#lat').val();
+            long = $('#long').val();
+            weatherRender();
+            $('#lat').val('');
+            $('#long').val('');
+        });
         weatherRender()
     </script>
 </body>
