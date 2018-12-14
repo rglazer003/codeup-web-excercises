@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
             background-color: #789CB2;
         }
+        span{
+            font-size: 12px;
+        }
         .data {
             border: solid 1px black;
-            max-width: 300px;
+            max-width: 33%;
             max-height: 200px;
             height: 200px;
-            width: 300px;
+            width: 33%;
             background-color: white;
             text-align: center;
             display: inline-block;
@@ -23,6 +30,9 @@
             text-align: center;
         }
 
+        .bold {
+            font-weight: bold;
+        }
         #map-canvas {
             width: 770px;
             height: 481px;
@@ -31,29 +41,59 @@
 </head>
 <body>
     <div class="top">
-        <div id="first" class="data clear">
-            <h3>Temp</h3>
-            <h6>Icon</h6>
-            <h6>Other Stuff</h6>
+        <div id="first" class="data">
+            <h3 id="hold1"></h3>
+            <div id="hold2"></div>
+            <div id="hold3"></div>
+            <div id="hold3a"></div>
         </div>
-        <div id="second" class="data float">
-            <h3>Temp</h3>
-            <h6>Icon</h6>
-            <h6>Other Stuff</h6>
+        <div id="second" class="data">
+            <h3 id="hold4"></h3>
+            <div id="hold5"></div>
+            <div id="hold6"></div>
+            <div id="hold6a"></div>
         </div>
-        <div id="third" class="data float">
-            <h3>Temp</h3>
-            <h6>Icon</h6>
-            <h6>Other Stuff</h6>
+        <div id="third" class="data">
+            <h3 id="hold7"></h3>
+            <div id="hold8"></div>
+            <div id="hold9"></div>
+            <div id="hold9a"></div>
         </div>
     </div>
     <div id="map" style="text-align: center">
-        <div id="map-canvas" style="display: inline-block; background-color: white" ></div>
+        <div id="map-canvas" style="display: inline-block; background-color: white"></div>
     </div>
 
     <script src="js/jquery.js"></script>
     <script>
-
+        function weatherRender() {
+            $.get('http://api.openweathermap.org/data/2.5/forecast',{
+                APPID: 'b57aae04db5359e57dfa0d55e33d67c6',
+                id: 4726206,
+                units: 'imperial'
+            }).done(function (data, status, jqXhr){
+                console.log(data);
+                var img1 = data.list[0].weather[0].icon;
+                var icon1 = "http://openweathermap.org/img/w/"+img1+".png";
+                var img2 = data.list[0].weather[0].icon;
+                var icon2 = "http://openweathermap.org/img/w/"+img2+".png";
+                var img3 = data.list[0].weather[0].icon;
+                var icon3 = "http://openweathermap.org/img/w/"+img3+".png";
+                $('#hold1').html(data.list[0].main.temp_min+'&deg'+'/'+data.list[0].main.temp_max+'&deg');
+                $('#hold2').html('<img src='+icon1+'>');
+                $('#hold3').html('<span class="bold">'+data.list[0].weather[0].main+'</span>');
+                $('#hold3a').html('<span>'+data.list[0].weather[0].description+'</span>');
+                $('#hold4').html(data.list[8].main.temp_min+'&deg'+'/'+data.list[8].main.temp_max+'&deg');
+                $('#hold5').html('<img src='+icon2+'>');
+                $('#hold6').html('<span class="bold">'+data.list[8].weather[0].main+'</span>');
+                $('#hold6a').html('<span>'+data.list[8].weather[0].description+'</span>');
+                $('#hold7').html(data.list[16].main.temp_min+'&deg'+'/'+data.list[16].main.temp_max+'&deg')
+                $('#hold8').html('<img src='+icon3+'>');
+                $('#hold9').html('<span class="bold">'+data.list[16].weather[0].main+'</span>');
+                $('#hold9a').html('<span>'+data.list[16].weather[0].description+'</span>');
+            })
+        }
+        weatherRender()
     </script>
 </body>
 </html>
