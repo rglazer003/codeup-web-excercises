@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="holder"></div>
+    <hr>
+    <div id="team"></div>
+    <button class="btn">Gimme another one</button>
+    <button class="btn2">Add to team</button>
+</body>
+
+<script src="js/jquery.js"></script>
+<script>
+    var html = 'https://pokeapi.co/api/v2/pokemon/'+rand()+'/';
+    var team = '';
+    var temp = '';
+    function rand (){
+        return Math.floor(Math.random() * 807)+1;
+    }
+    function pokeGen (){
+        $.get(html).done(function (data, status, jqXhr) {
+            var hold = '<h3>'+data.name+'</h3>';
+            $('#holder').html(hold);
+            console.log(status);
+            temp = hold;
+            rand();
+            html = 'https://pokeapi.co/api/v2/pokemon/'+rand()+'/';
+        });
+    }
+
+    pokeGen();
+    $('.btn').on('click', pokeGen);
+    $('.btn2').on('click', function () {
+        team += temp;
+        $('#team').html(team);
+    })
+</script>
+</html>

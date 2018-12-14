@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Online Store</title>
+    <link rel="stylesheet" href="css/twitter.css">
 </head>
 <body>
 
@@ -21,8 +22,7 @@
     </tbody>
 </table>
 
-<button id="btn">Refresh data</button>
-<button id="post">Test Post</button>    
+<button class="btn" id="btn1">Refresh data</button>
 <script src="js/jquery.js"></script>
 
 <script>
@@ -46,7 +46,7 @@
         })
     }
     tableGen();
-    $('#btn').on('click', tableGen);
+    $('#btn1').on('click', tableGen);
 
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect

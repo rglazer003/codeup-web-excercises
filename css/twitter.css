@@ -82,7 +82,7 @@ a {
     margin-top: 2em;
 }
 .btn {
-    border: 1px solid var(--main-link-color);
+    /*border: 1px solid var(--main-link-color);*/
     color: var(--main-link-color);
     background: var(--light-bg);
     font-weight: bold;
