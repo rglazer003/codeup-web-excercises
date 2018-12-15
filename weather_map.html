@@ -45,6 +45,7 @@
     </style>
 </head>
 <body>
+    <h1></h1>
     <div class="top">
         <div id="first" class="data">
             <h3 id="hold1"></h3>
@@ -78,8 +79,8 @@
         </div>
     </div>
     <form id="form">
-        <input id="lat" type="text">
-        <input id="long" type="text">
+        <input id="lat" type="text" placeholder="Latitude">
+        <input id="long" type="text" placeholder="Longitude">
         <button id="btn">Search</button>
     </form>
     <div id="map" style="text-align: center">
@@ -92,7 +93,6 @@
         var lat = 29.423017;
         var long = -98.48527;
         var marker=null;
-        var geocoder = new google.maps.Geocoder();
         var initialize = {
             // Set the zoom level
             zoom: 4,
@@ -144,6 +144,7 @@
                 var hold6b = '<span>'+data.list[8].weather[0].description+'</span>';
                 var hold9a = '<span class=\"bold\">'+data.list[16].weather[0].main+'</span>';
                 var hold9b = '<span>'+data.list[16].weather[0].description+'</span>';
+                $('h1').html(data.city.name);
                 $('#hold1').html(data.list[0].main.temp_min+'&deg'+'/'+data.list[0].main.temp_max+'&deg');
                 $('#hold2').html('<img src='+icon1+'>');
                 $('#hold3').html(hold3a +': ' + hold3b);
