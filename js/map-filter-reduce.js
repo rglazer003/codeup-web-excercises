@@ -46,3 +46,26 @@ let emails = users.map(function (e) {
     return e.email.toString()
 });
 console.log(emails);
+
+let totalYears = users.reduce(function (total, employee) {
+    return total + employee.yearsOfExperience
+}, 0);
+console.log(totalYears);
+
+let longestEmail = users.reduce(function (longest, users) {
+    if (users.email.length > longest.length){
+        longest = users.email
+    }
+    return longest
+}, '');
+console.log(longestEmail);
+
+let userList = users.reduce(function (user, list) {
+    if (list.id===users.length)
+        user += ` ${list.name}.`;
+    else {
+        user += list.name + " ,";
+    }
+    return user;
+}, "Your instructors are: ");
+console.log(userList);
