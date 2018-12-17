@@ -42,3 +42,7 @@ let numLang = users.filter(function(n)
 });
 console.log(numLang);
 
+let emails = users.map(function (e) {
+    return e.email.toString()
+});
+console.log(emails);
