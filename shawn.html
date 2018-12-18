@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Title
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        .card:hover
+        {
+            -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+            -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+            box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+        }
+        .cardHolder
+        {
+            padding-left: 15px!important;
+            padding-right: 15px!important;
+            /*text-align: center;*/
+        }
+        .card {
+            /*display: inline-block;*/
+            margin-left: 20px;
+        }
+
+        #rowDiv
+        {
+            margin: auto;
+            text-align: center;
+            width: 60%;
+        }
+
+        #submitWeather
+        {
+            height: 40px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        /*#h3Center*/
+        /*{*/
+        /*text-align: center!important;*/
+        /*}*/
+    </style>
+
+</head>
+<body>
+    <div class="jumbotron" style="margin-bottom:0; color: white; background-color: burlywood">
+        <h2 class="text-center" style="font-size:50px; font-weight:600">
+            Get Current Weather
+        </h2>
+    </div>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <h3 class="text-xl-right text-primary" id="h3Center">
+                Enter city name
+            </h3>
+            <span id="error"></span>
+        </div>
+        <div class="row form-group form-inline justify-content-center" id="rowDiv">
+            <input type="text" name="city" id="city" class="form-control" placeholder="City Name">
+            <button id="submitWeather" class="btn btn-primary">
+                Search City
+            </button>
+        </div>
+    </div>
+    <div class=" justify-content-center row cardHolder">
+            <div class="card showWeather col-4" style="width: 25rem;">
+                <div class="card-body">
+                    <div class="card-title" style="font-size: 8px">
+                        <h3 class="card-title cityName"></h3>
+                    </div>
+                    <p class="card-text">
+                    <div class="lowTemp"></div>
+                    <div class="tempDiv"></div>
+                    <div class="humDiv"></div>
+                    <div class="cloudDiv"></div>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card showWeather col-4" style="width: 25rem;">
+                <div class="card-body">
+                    <div class="card-title" style="font-size: 8px">
+                        <h3 class="card-title cityName"></h3>
+                    </div>
+                    <p class="card-text">
+                    <div class="lowTemp1"></div>
+                    <div class="tempDiv1"></div>
+                    <div class="humDiv1"></div>
+                    <div class="cloudDiv1"></div>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card showWeather col-4" style="width: 25rem;">
+                <div class="card-body">
+                    <div class="card-title" style="font-size: 8px">
+                        <h3 class="card-title cityName"></h3>
+                    </div>
+                    <p class="card-text">
+                    <div class="lowTemp2"></div>
+                    <div class="tempDiv2"></div>
+                    <div class="humDiv2"></div>
+                    <div class="cloudDiv2"></div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $('.cardHolder1').toggle();
+            $('.cardHolder').toggle();
+            $('#submitWeather').click(function()
+            {
+                var city = $("#city").val();
+                if (city !== '')
+                {
+                    $.ajax({
+                        url: "http://api.openweathermap.org/data/2.5/forecast?q="
+                            + city
+                            + "&units=imperial"
+                            + "&APPID=3c5c80a5cc759dc7c25ab64c0c9ebadd",
+                        type: "GET",
+                        datatype: "jsonp"
+                    }).done(function(data)
+                    {
+                        console.log(data);
+                        console.log(data.list[0].main.temp);
+                        $('.cardHolder').slideToggle();
+                        $('.cityName').html(city);
+                        $('.tempDiv').html('<h6>Current Temp - ' + data.list[0].main.temp + ' Degrees</h6>');
+                        $('.humDiv').html('<h6>Sky Description - ' + data.list[0].weather[0].description + '</h6>');
+                        $('.lowTemp').html('<h6>Lowest Temp - ' + data.list[0].main.temp_min + '</h6>');
+                        $('.cloudDiv').html(data.list[0].dt_txt);
+                        $('.lowTemp1').html('<h6>Lowest Temp - ' + data.list[8].main.temp_min + '</h6>');
+                        $('.tempDiv1').html('<h6>Current Temp - ' + data.list[8].main.temp + ' Degrees</h6>');
+                        $('.humDiv1').html('<h6>Sky Description - ' + data.list[8].weather[0].description + '</h6>');
+                        $('.cloudDiv1').html(data.list[8].dt_txt);
+                        $('.lowTemp2').html('<h6>Lowest Temp - ' + data.list[16].main.temp_min + '</h6>');
+                        $('.tempDiv2').html('<h6>Current Temp - ' + data.list[16].main.temp + ' Degrees</h6>');
+                        $('.humDiv2').html('<h6>Sky Description - ' + data.list[16].weather[0].description + '</h6>');
+                        $('.cloudDiv2').html(data.list[16].dt_txt);
+                        $('#city').val('');
+                    })
+                } else
+                {
+                    $('#error').html('Field can not be empty');
+                }
+            })
+        })
+
+
+    </script>
+</body>
+</html>
+<!--3c5c80a5cc759dc7c25ab64c0c9ebadd-->

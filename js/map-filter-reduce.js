@@ -50,7 +50,7 @@ console.log(emails);
 let totalYears = users.reduce(function (total, employee) {
     return total + employee.yearsOfExperience
 }, 0);
-console.log(totalYears);
+console.log(totalYears/users.length);
 
 let longestEmail = users.reduce(function (longest, users) {
     if (users.email.length > longest.length){

@@ -86,21 +86,17 @@
     <div id="map" style="text-align: center">
         <div id="map-canvas" style="display: inline-block; background-color: white"></div>
     </div>
-    <input type="text" id="coordinate" value="Latitude, Longitude"/>
     <script src="js/jquery.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYm8giPLtR3b1hJfKMmee0NFMnFRdr8o8"></script>
     <script>
-        //Initial map position, will be overwritten
         var lat = 29.423017;
         var long = -98.48527;
         var marker=null;
-        //Variable for if you are doing city search
-        var city = '';
         var initialize = {
             // Set the zoom level
             zoom: 4,
 
-            // Where the map will start centered
+            // This sets the center of the map at our location
             center: {
                 lat:  lat,
                 lng: long
@@ -117,23 +113,26 @@
             //delete the old marker
             if (marker) { marker.setMap(null); }
 
-            //Create a new marker
+            //creer à la nouvelle emplacement
             marker = new google.maps.Marker({ position: event.latLng, map: map});
-            //If you use a city for your search add this code to store a new city based on the lat/lng
-            $.get('http://api.openweathermap.org/data/2.5/forecast',{
-                APPID: 'b57aae04db5359e57dfa0d55e33d67c6',
-                lat: lat,
-                lon: long
-            }).done(function (data, status, jqXhr){
-                city = data.city.name;
-                console.log(city);
-            });
-            //Function that generates the data for top divs
             weatherRender();
         });
 
 
         google.maps.event.addDomListener(window, 'load', initialize);
+
+        function renderOneStat(statInfo, number) {
+            var img1 = statInfo.weather[0].icon;
+            var icon1 = "http://openweathermap.org/img/w/"+img1+".png";
+            var hold3a = '<span class=\"bold\">'+data.list[0].weather[0].main+'</span>';
+            var hold3b = '<span>'+data.list[8].weather[0].description+'</span>';
+            $('#hold1-'+number).html(data.list[0].main.temp_min+'&deg'+'/'+data.list[0].main.temp_max+'&deg');
+            $('#hold2-'+number).html('<img src='+icon1+'>');
+            $('#hold3-'+number).html(hold3a +': ' + hold3b);
+            $('#humid1').html('Humidity: ' + data.list[0].main.humidity);
+            $('#wind1').html('Wind: '+ data.list[0].wind.speed);
+            $('#pressure1').html('Pressure: ' + data.list[0].main.pressure);
+        }
 
         function weatherRender() {
             $.get('http://api.openweathermap.org/data/2.5/forecast',{
@@ -143,6 +142,10 @@
                 units: 'imperial'
             }).done(function (data, status, jqXhr){
                 console.log(data);
+                renderOneStat(data.list[0], '1');
+                renderOneStat(data.list[8], '2');
+                renderOneStat(data.list[16], '3');
+
                 var img1 = data.list[0].weather[0].icon;
                 var icon1 = "http://openweathermap.org/img/w/"+img1+".png";
                 var img2 = data.list[8].weather[0].icon;
@@ -155,44 +158,25 @@
                 var hold6b = '<span>'+data.list[8].weather[0].description+'</span>';
                 var hold9a = '<span class=\"bold\">'+data.list[16].weather[0].main+'</span>';
                 var hold9b = '<span>'+data.list[16].weather[0].description+'</span>';
-                var wind1a = '<span class=\"bold\">Wind Speed: </span>';
-                var wind1b = '<span>'+data.list[0].wind.speed+'</span>';
-                var wind2a = '<span class=\"bold\">Wind Speed: </span>';
-                var wind2b = '<span>'+data.list[8].wind.speed+'</span>';
-                var wind3a = '<span class=\"bold\">Wind Speed: </span>';
-                var wind3b = '<span>'+data.list[16].wind.speed+'</span>';
-                var humid1a = '<span class=\"bold\">Humidity: </span>';
-                var humid1b = '<span>'+data.list[0].main.humidity+'</span>';
-                var humid2a = '<span class=\"bold\">Humidity: </span>';
-                var humid2b = '<span>'+data.list[8].main.humidity+'</span>';
-                var humid3a = '<span class=\"bold\">Humidity: </span>';
-                var humid3b = '<span>'+data.list[16].main.humidity+'</span>';
-                var pressure1a = '<span class=\"bold\">Pressure: </span>';
-                var pressure1b = '<span>'+data.list[0].main.pressure+'</span>';
-                var pressure2a = '<span class=\"bold\">Pressure: </span>';
-                var pressure2b = '<span>'+data.list[8].main.pressure+'</span>';
-                var pressure3a = '<span class=\"bold\">Pressure: </span>';
-                var pressure3b = '<span>'+data.list[16].main.pressure+'</span>';
-
                 $('h1').html(data.city.name);
                 $('#hold1').html(data.list[0].main.temp_min+'&deg'+'/'+data.list[0].main.temp_max+'&deg');
                 $('#hold2').html('<img src='+icon1+'>');
                 $('#hold3').html(hold3a +': ' + hold3b);
-                $('#humid1').html("<strong>Humidity :</strong> <span>"+data.list[0].main.humidity+"</span>");
-                $('#wind1').html(wind1a + wind1b);
-                $('#pressure1').html(pressure1a+pressure1b);
+                $('#humid1').html('Humidity: ' + data.list[0].main.humidity);
+                $('#wind1').html('Wind: '+ data.list[0].wind.speed);
+                $('#pressure1').html('Pressure: ' + data.list[0].main.pressure);
                 $('#hold4').html(data.list[8].main.temp_min+'&deg'+'/'+data.list[8].main.temp_max+'&deg');
                 $('#hold5').html('<img src='+icon2+'>');
                 $('#hold6').html(hold6a +': ' + hold6b);
-                $('#humid2').html(humid2a+humid2b);
-                $('#wind2').html(wind2a+wind2b);
-                $('#pressure2').html(pressure2a+pressure2b);
+                $('#humid2').html('Humidity: ' + data.list[8].main.humidity);
+                $('#wind2').html('Wind: '+ data.list[8].wind.speed);
+                $('#pressure2').html('Pressure: ' + data.list[8].main.pressure);
                 $('#hold7').html(data.list[16].main.temp_min+'&deg'+'/'+data.list[16].main.temp_max+'&deg')
                 $('#hold8').html('<img src='+icon3+'>');
                 $('#hold9').html(hold9a +': ' + hold9b);
-                $('#humid3').html(humid3a+humid3b);
-                $('#wind3').html(wind3a+wind3b);
-                $('#pressure3').html(pressure3a+pressure3b);
+                $('#humid3').html('Humidity: ' + data.list[16].main.humidity);
+                $('#wind3').html('Wind: '+ data.list[16].wind.speed);
+                $('#pressure3').html('Pressure: ' + data.list[16].main.pressure);
             })
         }
         $('#btn').on('click', function (e) {
